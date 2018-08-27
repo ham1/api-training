@@ -3,6 +3,7 @@ package connectfour.api.test;
 import com.frameworkium.core.api.tests.BaseAPITest;
 import connectfour.api.service.game.GameService;
 import io.restassured.response.ExtractableResponse;
+import org.apache.http.HttpStatus;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
@@ -28,8 +29,8 @@ public class RetrieveGameTest extends BaseAPITest {
     @Test
     public void get_game_state() {
         ExtractableResponse resp = service.retrieveGame(playerId);
-        assertThat(resp.statusCode()).isEqualTo(202);
-        assertThat(resp.body().toString().length()).isEqualTo(0); // no body if no game has started
+        assertThat(resp.statusCode()).isEqualTo(HttpStatus.SC_ACCEPTED);
+        assertThat(resp.body().asString()).isEmpty(); // no body if no game has started
     }
 
 }

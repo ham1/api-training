@@ -1,6 +1,8 @@
 package connectfour.api.constant;
 
-public enum Endpoint {
+import com.frameworkium.core.api.Endpoint;
+
+public enum C4Endpoint implements Endpoint {
 
     BASE_URI("http://localhost:8080"),
     JOIN_GAME("/api/join"),
@@ -9,7 +11,7 @@ public enum Endpoint {
 
     private String url;
 
-    Endpoint(String url) {
+    C4Endpoint(String url) {
         this.url = url;
     }
 
@@ -22,5 +24,4 @@ public enum Endpoint {
     public String getUrl(Object... params) {
         return String.format(url, params);
     }
-
 }

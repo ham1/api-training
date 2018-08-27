@@ -1,12 +1,11 @@
 package connectfour.api.service;
 
 import com.frameworkium.core.api.services.BaseService;
-import connectfour.api.constant.Endpoint;
+import connectfour.api.constant.C4Endpoint;
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
-import org.apache.http.HttpStatus;
 
 import java.util.Map;
 
@@ -19,7 +18,7 @@ public class BaseConnectFourService extends BaseService {
      */
     @Override
     protected RequestSpecification getRequestSpec() {
-        return RestAssured.given().baseUri(Endpoint.BASE_URI.getUrl());
+        return RestAssured.given().baseUri(C4Endpoint.BASE_URI.getUrl());
     }
 
     /**

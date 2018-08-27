@@ -8,14 +8,13 @@ import org.testng.annotations.Test;
 
 import static com.google.common.truth.Truth.assertThat;
 
-
 public class JoinGameTest extends BaseAPITest {
 
     private GameService service;
 
     @DataProvider(name = "playerNames")
-    public String[][] createPlayerNames() {
-        return new String[][] {
+    public Object[][] createPlayerNames() {
+        return new String[][]{
                 {"ABC", "200"},
                 {"123", "200"},
                 {"!$%", "200"},
