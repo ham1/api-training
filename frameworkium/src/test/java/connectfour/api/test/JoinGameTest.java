@@ -14,11 +14,11 @@ public class JoinGameTest extends BaseAPITest {
 
     @DataProvider(name = "playerNames")
     public Object[][] createPlayerNames() {
-        return new String[][]{
-                {"ABC", "200"},
-                {"123", "200"},
-                {"!$%", "200"},
-                {"", "200"},
+        return new Object[][]{
+                {"ABC", 200},
+                {"123", 200},
+                {"!$%", 200},
+                {"", 200},
         };
     }
 
@@ -34,9 +34,9 @@ public class JoinGameTest extends BaseAPITest {
     }
 
     @Test(dataProvider = "playerNames")
-    public void data_driven_join_game(String name, String expectedStatus) {
+    public void data_driven_join_game(String name, Integer expectedStatus) {
         assertThat(service.joinGame(name).statusCode())
-                .isEqualTo(Integer.parseInt(expectedStatus));
+                .isEqualTo(expectedStatus);
     }
 
 }
